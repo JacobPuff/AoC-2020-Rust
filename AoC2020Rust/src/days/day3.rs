@@ -21,12 +21,7 @@ fn trees_on_slope(right: usize, down: usize) -> usize {
     let width = 31;
     let height = data.len();
     let mut num_of_trees: usize = 0;
-    let mut _reached_bottom: bool = false;
-    while !_reached_bottom {
-        if y >= height {
-            _reached_bottom = true;
-            break;
-        }
+    while y < height {
         if data[y].chars().nth(x % width).unwrap() == '#' {
             num_of_trees += 1;
         }
