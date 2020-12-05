@@ -1,4 +1,3 @@
-
 pub fn day3() {
     // Part one
     let part_one_count: usize = trees_on_slope(3, 1);
