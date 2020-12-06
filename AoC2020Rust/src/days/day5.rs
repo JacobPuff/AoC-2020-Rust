@@ -25,7 +25,7 @@ pub fn day5() {
 
     // Part one highest seat id is 832
     println!("Part one highest seat id is {}", part_one_highest_seat_id);
-    // Part two your seat id is
+    // Part two your seat id is 517
     println!("Part two your seat id is {}", part_two_seat_id);
 }
 
