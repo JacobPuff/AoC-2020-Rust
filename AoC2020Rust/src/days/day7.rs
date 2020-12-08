@@ -11,6 +11,8 @@ struct SubBag {
     amount: i32,
 }
 
+const MY_BAG: &str = "shiny gold";
+
 pub fn day7() {
     let rules: Vec<&str> = DATA.split("\n").collect();
     let mut rule_map = HashMap::new();
@@ -42,23 +44,23 @@ pub fn day7() {
     // Part one
     let mut part_one_contains_shiny_gold_count = 0;
     for bag_name in rule_map.keys() {
-        let does_contain_shiny_gold: bool = contains_bag(&rule_map, bag_name, "shiny gold");
+        let does_contain_shiny_gold: bool = contains_bag(&rule_map, bag_name, MY_BAG);
         if does_contain_shiny_gold {
             part_one_contains_shiny_gold_count += 1;
         }
     }
     // There are 272 bags that contain a shiny gold bag.
-    println!("There are {} bags that contain a shiny gold bag.", part_one_contains_shiny_gold_count);
+    println!("There are {} bags that contain a {} bag.", part_one_contains_shiny_gold_count, MY_BAG);
 
     // Part two
     let mut shiny_gold_sub_bag_count_map = HashMap::new();
     let mut shiny_gold_sub_bag_count: i32 = 0;
-    all_contents_of_bag(&rule_map, "shiny gold", 1, &mut shiny_gold_sub_bag_count_map);
+    all_contents_of_bag(&rule_map, MY_BAG, 1, &mut shiny_gold_sub_bag_count_map);
     for amount in shiny_gold_sub_bag_count_map.values() {
         shiny_gold_sub_bag_count += amount;
     }
     // There are 172246 sub bags in a shiny gold bag.
-    println!("There are {} sub bags in a shiny gold bag.", shiny_gold_sub_bag_count);
+    println!("There are {} sub bags in a {} bag.", shiny_gold_sub_bag_count, MY_BAG);
 }
 
 fn contains_bag(rule_map: &HashMap<&str, Bag>, bag_name: &str, contains_bag_name: &str) -> bool {

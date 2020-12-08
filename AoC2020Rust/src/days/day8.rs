@@ -8,7 +8,7 @@ pub fn day8() {
 
     // Part two
     let mut current_replacement = 1;
-    let mut part_two_accumulator: i32;
+    let part_two_accumulator: i32;
     loop {
         let (looped, accumulator) = looped_and_get_acc_value_with_replace(current_replacement);
         if !looped {
