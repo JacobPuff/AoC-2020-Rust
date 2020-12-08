@@ -76,18 +76,15 @@ fn contains_bag(rule_map: &HashMap<&str, Bag>, bag_name: &str, contains_bag_name
     return false
 }
 
-fn all_contents_of_bag(rule_map: &HashMap<&str, Bag>, bag_name: &str, multiplyer: i32, counts_of_bags: &mut HashMap<&str, i32>) {
+fn all_contents_of_bag(rule_map: &HashMap<&str, Bag>, bag_name: &str, multiplier: i32, counts_of_bags: &mut HashMap<&str, i32>) {
     for sub_bag in &rule_map[bag_name].contains {
         if counts_of_bags.contains_key(sub_bag.name) {
-            let new_count: i32 = counts_of_bags[sub_bag.name] + (sub_bag.amount * multiplyer);
+            let new_count: i32 = counts_of_bags[sub_bag.name] + (sub_bag.amount * multiplier);
             counts_of_bags.insert(sub_bag.name, new_count);
         } else {
-            counts_of_bags.insert(sub_bag.name, sub_bag.amount * multiplyer);
+            counts_of_bags.insert(sub_bag.name, sub_bag.amount * multiplier);
         }
-        if sub_bag.amount != 0 {
-
-        }
-        all_contents_of_bag(rule_map, sub_bag.name, multiplyer*sub_bag.amount, counts_of_bags);
+        all_contents_of_bag(rule_map, sub_bag.name, multiplier*sub_bag.amount, counts_of_bags);
     }
 }
 
