@@ -18,6 +18,7 @@ fn main() {
         "7" => days::day7::day7(),
         "8" => days::day8::day8(),
         "9" => days::day9::day9(),
+        "10" => days::day10::day10(),
         _ => println!("We dont have that day.")
     }
 }
