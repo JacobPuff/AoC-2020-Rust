@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 const WALL: i64 = 0;
 const DEVICE_DIFF: i64 = 3;
 

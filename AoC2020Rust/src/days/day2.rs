@@ -1,17 +1,12 @@
-use std::fs::File;
-use std::io::prelude::*;
-use std::io::{BufReader};
-use std::path::Path;
+use crate::days;
 
 pub fn day2() {
-    let path = Path::new("src/days/day2data.txt").as_os_str();
-    let data_file = File::open(path).unwrap();
-    let data_file = BufReader::new(data_file);
+    let data_file: Vec<String> = days::tools::open_file_from_path("src/days/day2data.txt");
     let mut part_one_valid_passwords = 0;
     let mut part_two_valid_passwords = 0;
 
-    for wrapped_line in data_file.lines() {
-        let line = wrapped_line.unwrap();
+    for wrapped_line in data_file {
+        let line = wrapped_line;
         let split_on_space: Vec<&str> = line.split(" ").collect();
         
         let mut count_of_letter: i32 = 0;
