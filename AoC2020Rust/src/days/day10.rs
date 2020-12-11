@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 const WALL: i64 = 0;
-const DEVICE: i64 = 3;
+const DEVICE_DIFF: i64 = 3;
 
 pub fn day10() {
     let mut data = get_data();
@@ -22,7 +22,7 @@ pub fn day10() {
         }
     }
     // Part two
-    diff_list.push(DEVICE);
+    diff_list.push(DEVICE_DIFF);
     let mut part_two_combinations: i64 = 0;
     let mut arrangable_ones: u32 = 0;
     for x in 0..diff_list.len() {
