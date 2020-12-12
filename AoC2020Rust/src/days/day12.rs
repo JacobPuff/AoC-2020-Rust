@@ -58,12 +58,12 @@ pub fn day12b() {
         match instrcution_type {
             'R' => {
                 for _ in 0..amount/90 {
-                    waypoint = (waypoint.1*-1, waypoint.0);
+                    waypoint = (waypoint.1, waypoint.0*-1);
                 }
             },
             'L' => {
                 for _ in 0..amount/90 {
-                    waypoint = (waypoint.1, waypoint.0*-1);
+                    waypoint = (waypoint.1*-1, waypoint.0);
                 }
             },
             'F' => {
