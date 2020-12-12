@@ -41,6 +41,7 @@ pub fn day12a() {
             _ => println!("This shouldn't happen")
         }
     }
+    // Part one ship manhatten distance 1152
     println!("Part one ship manhatten distance {}", x_pos.abs() + y_pos.abs())
 }
 
@@ -76,5 +77,6 @@ pub fn day12b() {
             _ => println!("This shouldn't happen")
         }
     }
+    // Part two ship manhatten distance 58637
     println!("Part two ship manhatten distance {}", x_pos.abs() + y_pos.abs())
 }
