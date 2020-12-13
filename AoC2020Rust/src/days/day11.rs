@@ -7,7 +7,7 @@ pub fn day11() {
     println!("Part one seats occupied (using immediate neighbors) {}", part_one_occupied_count);
 
     let part_two_occupied_count = count_seats_in_result(get_stable_with_part(2));
-    // Part two seats occupied (using vector) {}
+    // Part two seats occupied (using vector) 1990
     println!("Part two seats occupied (using vector) {}", part_two_occupied_count);
 }
 
