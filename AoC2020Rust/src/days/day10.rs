@@ -21,7 +21,7 @@ pub fn day10() {
     }
     // Part two
     diff_list.push(DEVICE_DIFF);
-    let mut part_two_combinations: i64 = 0;
+    let mut part_two_combinations: i64 = 1;
     let mut arrangable_ones: u32 = 0;
     for x in 0..diff_list.len() {
         match diff_list[x] {
@@ -31,8 +31,6 @@ pub fn day10() {
                     arrangable_ones -= 1;
                     if part_two_combinations != 0 {
                         part_two_combinations *= get_arrangements(arrangable_ones);
-                    } else {
-                        part_two_combinations = get_arrangements(arrangable_ones);
                     }
                 }
                 arrangable_ones = 0;
