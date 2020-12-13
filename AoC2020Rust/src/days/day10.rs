@@ -22,20 +22,18 @@ pub fn day10() {
     // Part two
     diff_list.push(DEVICE_DIFF);
     let mut part_two_combinations: i64 = 1;
-    let mut arrangable_ones: u32 = 0;
+    let mut arrangable_ones: Vec<i64> = Vec::new();
     for x in 0..diff_list.len() {
         match diff_list[x] {
-            1 => arrangable_ones += 1,
             3 => {
-                if arrangable_ones > 1 {
-                    arrangable_ones -= 1;
+                if arrangable_ones.len() > 1 {
                     if part_two_combinations != 0 {
                         part_two_combinations *= get_arrangements(arrangable_ones);
                     }
                 }
-                arrangable_ones = 0;
+                arrangable_ones = Vec::new();
             },
-            _ => ()
+            _ => arrangable_ones.push(diff_list[x]),
         }
     }
     
@@ -46,20 +44,19 @@ pub fn day10() {
     println!("Part two number of arrangements is {}", part_two_combinations);
 }
 
-fn get_arrangements(arrangable_ones: u32) -> i64 {
-    let combinations: u64 = 2u64.pow(arrangable_ones);
+fn get_arrangements(arrangable_ones: Vec<i64>) -> i64 {
+    let combinations: u64 = 2u64.pow((arrangable_ones.len()-1) as u32);
     let mut count_of_valid = 0;
     for x in 0..combinations {
-        let mut num_of_zeros = 0;
+        let mut rolling_diff = 0;
         let mut valid = true;
-        for b in 0..arrangable_ones {
-            if x & (1 << b) == 0 {
-                num_of_zeros += 1;
+        for bit_index in 0..arrangable_ones.len()-1 {
+            if x & (1 << bit_index) == 0 {
+                rolling_diff += arrangable_ones[bit_index];
             } else {
-                num_of_zeros = 0;
+                rolling_diff = 0;
             }
-            
-            if num_of_zeros == 3 {
+            if rolling_diff + arrangable_ones[bit_index+1] > 3 {
                 valid = false;
                 break;
             }
