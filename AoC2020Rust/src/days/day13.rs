@@ -18,7 +18,6 @@ pub fn day13() {
             earliest_bus_time = next_time;
             earliest_bus = bus;
         }
-        
     }
 
     // Part two
