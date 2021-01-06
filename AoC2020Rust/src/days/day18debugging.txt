@@ -1,0 +1,26 @@
+// input
+2*(5+7)
+1  2 3
+// I kept track of the ids in my head until the end
+
+// Working values
+nodes = [0,1]
+nodeP = [0,1]
+layer_starts = [0,2,2]
+current_parent = 1;
+current_id = 2;
+current_operation = "*";
+current_priority = 0;
+max_priority = 1;
+beginning_of_paren_offset = 2;
+
+// These were here to reset values with a copy paste.
+nodes = [0]
+nodeP = [0]
+layer_starts = [0]
+current_parent = 0;
+current_id = 1;
+current_operation = "+";
+current_priority = 1;
+max_priority = 0;
+beginning_of_paren_offset = 0;
