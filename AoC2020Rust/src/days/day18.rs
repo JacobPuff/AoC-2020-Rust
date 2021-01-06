@@ -133,13 +133,8 @@ fn part_two() {
                             if beginning_of_paren {
                                 current_parent = layer_starts[layer_starts.len() - beginning_of_paren_offset as usize-1];
                             } else if layer_starts.len() != 0 {
-                                let potential_parent = layer_starts.pop().unwrap();
-                                if potential_parent != current_id {
-                                    current_parent = potential_parent;
-                                    layer_starts.push(current_id);
-                                } else {
-                                    layer_starts.push(potential_parent);
-                                }
+                                current_parent = layer_starts.pop().unwrap();
+                                layer_starts.push(current_id);
                             }
                         }
                         if current_priority > max_priority {
